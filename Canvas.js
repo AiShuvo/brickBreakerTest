@@ -2,26 +2,26 @@ class Canvas{
 	
 	constructor(canvasId){
 		this.canvasId = canvasId;
-		this.draw();
 		this.setupScreenSize();
+		this.draw();
 	}
 	
 	connection(){
 		alert("canvas is connected!!");
 	}
 	
-	width(){		//it will setup the size of the canvas.............
+	setWidth(){		//it will setup the size of the canvas.............
 		return 500;
 	}
 	
-	height(){		//it will setup the width of the canvas..........
+	setHeight(){		//it will setup the width of the canvas..........
 		return window.innerHeight;
 	}
 	
 	setupScreenSize(){
-		if(screen.width>=this.width()){
-			this.canvasId.width = this.width();
-			this.canvasId.height = this.height();
+		if(screen.width>=this.setWidth()){
+			this.canvasId.width = this.setWidth();
+			this.canvasId.height = this.setHeight();
 		}else{
 			this.canvasId.width = window.innerWidth;
 			this.canvasId.height = window.innerHeight;
@@ -29,16 +29,16 @@ class Canvas{
 	}
 	
 	draw(value){
+		
+		var CanvasWidth = this.canvasId.width;
+		var CanvasHeight = this.canvasId.height;
 		var ctx = this.canvasId.getContext("2d");
 		
-		ctx.font = "30px Arial";
-		ctx.fillText("Hello World",10,50);
-		
 		var img = new Image();
-		img.src = "images/background.jpg";
+		img.src = "images/background3.jpg";
 		
 		img.onload = function(){
-			ctx.drawImage(img,0,0);
+			ctx.drawImage(img,0,0,CanvasWidth,CanvasHeight);
 		}
 	}
 };
