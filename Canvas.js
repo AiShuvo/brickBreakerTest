@@ -1,3 +1,4 @@
+var loading = false;
 class Canvas{
 	
 	constructor(canvasId){
@@ -33,21 +34,25 @@ class Canvas{
 	}
 	
 	isLoadComplete(){ //this function will help to find out is image loaded or not
-		return this.loadCompleted;
+		alert(loading);
 	}
 	
-	draw(){
+	draw(){ //this function will draw the canvas background..........
 		
 		var CanvasWidth = this.canvasId.width;
 		var CanvasHeight = this.canvasId.height;
 		var ctx = this.canvasId.getContext("2d");
-		
+			
 		var img = new Image();
 		img.src = "images/background3.jpg";
 		
 		img.onload = function(){
 			ctx.drawImage(img,0,0,CanvasWidth,CanvasHeight);
+			loading = true;
 		}
-		alert("hello helllo hello");
+	}
+	
+	loadingAnimation(){//this function will show loading animation before loading complete.......
+		ctx = this.canvasId.getContext("2d");
 	}
 };

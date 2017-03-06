@@ -20,9 +20,15 @@ canvas{
 Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
+
 var canvasId = document.getElementById("myCanvas");
 var canvas = new Canvas(canvasId);
-canvas.connection();
+setInterval(draw,30);
+
+function draw(){//everyThing What we have to draw will add this function;
+//	canvas.connection();
+	canvas.isLoadComplete();
+}
 </script>
 </body>
 
