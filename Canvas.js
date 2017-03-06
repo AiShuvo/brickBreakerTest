@@ -3,7 +3,9 @@ class Canvas{
 	constructor(canvasId){
 		this.canvasId = canvasId;
 		this.setupScreenSize();
+		alert(this.isLoadComplete());
 		this.draw();
+		alert(this.isLoadComplete());
 	}
 	
 	connection(){
@@ -28,7 +30,15 @@ class Canvas{
 		}
 	}
 	
-	draw(value){
+	setLoadStatus(loadStatus){
+		this.loadCompleted = loadStatus;
+	}
+	
+	isLoadComplete(){ //this function will help to find out is image loaded or not
+		return this.loadCompleted;
+	}
+	
+	draw(){
 		
 		var CanvasWidth = this.canvasId.width;
 		var CanvasHeight = this.canvasId.height;
@@ -39,10 +49,7 @@ class Canvas{
 		
 		img.onload = function(){
 			ctx.drawImage(img,0,0,CanvasWidth,CanvasHeight);
-			alert("loading complete");
 		}
-		img.loadend = function(){
-			alert("wait....");
-		}
+		alert("hello helllo hello");
 	}
 };
