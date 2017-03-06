@@ -39,6 +39,10 @@ class Canvas{
 		
 		img.onload = function(){
 			ctx.drawImage(img,0,0,CanvasWidth,CanvasHeight);
+			alert("loading complete");
+		}
+		img.loadend = function(){
+			alert("wait....");
 		}
 	}
 };
