@@ -3,9 +3,7 @@ class Canvas{
 	constructor(canvasId){
 		this.canvasId = canvasId;
 		this.setupScreenSize();
-		alert(this.isLoadComplete());
 		this.draw();
-		alert(this.isLoadComplete());
 	}
 	
 	connection(){
