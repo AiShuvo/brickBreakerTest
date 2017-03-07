@@ -26,11 +26,11 @@ canvas{
 Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
+var canvasId = document.getElementById("myCanvas");
+
 window.addEventListener("keydown",runByUserKeybord,false);
 //window.addEventListener("mousemove", runByUserMouse);
-window.addEventListener("touchmove", runByUserMouse, false);
-
-var canvasId = document.getElementById("myCanvas");
+canvasId.addEventListener("touchmove", runByUserMouse, false)
 
 //canvas method and object declaration here.....
 var canvas = new Canvas();
