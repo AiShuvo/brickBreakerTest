@@ -14,6 +14,7 @@ function SpringSurface(){
 	this.setCanvas = function(canvasId){
 		
 		this.canvasId = canvasId;
+		width = canvasId.width*30/100;
 	}
 	
 	this.draw = function(){		
@@ -35,6 +36,6 @@ function SpringSurface(){
 		}
 	}
 	this.setX = function(value){
-		X = value;
+		X = value-width/2;
 	}
 }
