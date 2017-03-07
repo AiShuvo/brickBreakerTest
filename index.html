@@ -16,18 +16,22 @@ canvas{
 </style>
 	
 <script src = "Canvas.js"></script>
+<script src = "LoadingAnimation.js"></script>
 <canvas id="myCanvas" class = "center">
 Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
 
 var canvasId = document.getElementById("myCanvas");
-var canvas = new Canvas(canvasId);
-setInterval(draw,30);
+
+var canvas = new Canvas();
+canvas.setCanvas(canvasId);
+canvas.run();
+
+setInterval(draw,0);
 
 function draw(){//everyThing What we have to draw will add this function;
-//	canvas.connection();
-	canvas.isLoadComplete();
+	canvas.draw();
 }
 </script>
 </body>

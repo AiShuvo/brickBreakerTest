@@ -1,43 +1,46 @@
-var loading = false;
-class Canvas{
+function Canvas(){
+	//decleare all instance here...........
 	
-	constructor(canvasId){
+	var animation = new Animation();
+	
+	//decleare all variable bellow.............
+	var loading = false;
+	var width = 500;
+	var height = window.innerHeight;
+	var canvasId = null;
+	var interval;
+	this.setCanvas = function(canvasId){
 		this.canvasId = canvasId;
 		this.setupScreenSize();
-		this.draw();
+		animation.setCanvasId(canvasId);
+	}
+	this.run = function(){
+		animation.setAng();
+		interval = setInterval(this.startAnimation,10);
 	}
 	
-	connection(){
+	this.startAnimation = function(){
+		if(!loading)
+			animation.anim();
+		else if(loading)
+			clearInterval(interval);
+	}
+	
+	this.connection = function(){
 		alert("canvas is connected!!");
 	}
 	
-	setWidth(){		//it will setup the size of the canvas.............
-		return 500;
-	}
-	
-	setHeight(){		//it will setup the width of the canvas..........
-		return window.innerHeight;
-	}
-	
-	setupScreenSize(){
-		if(screen.width>=this.setWidth()){
-			this.canvasId.width = this.setWidth();
-			this.canvasId.height = this.setHeight();
+	this.setupScreenSize = function(){
+		if(screen.width>=width){
+			this.canvasId.width = width;
+			this.canvasId.height = height;
 		}else{
 			this.canvasId.width = window.innerWidth;
 			this.canvasId.height = window.innerHeight;
 		}
 	}
 	
-	setLoadStatus(loadStatus){
-		this.loadCompleted = loadStatus;
-	}
-	
-	isLoadComplete(){ //this function will help to find out is image loaded or not
-		alert(loading);
-	}
-	
-	draw(){ //this function will draw the canvas background..........
+	this.draw = function(){ //this function will draw the canvas background..........
 		
 		var CanvasWidth = this.canvasId.width;
 		var CanvasHeight = this.canvasId.height;
@@ -51,8 +54,4 @@ class Canvas{
 			loading = true;
 		}
 	}
-	
-	loadingAnimation(){//this function will show loading animation before loading complete.......
-		ctx = this.canvasId.getContext("2d");
-	}
-};
+}
