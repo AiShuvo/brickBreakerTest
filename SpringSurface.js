@@ -34,4 +34,7 @@ function SpringSurface(){
 				X+=step;			
 		}
 	}
+	this.setX = function(value){
+		X = value;
+	}
 }
