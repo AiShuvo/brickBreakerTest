@@ -21,6 +21,7 @@ canvas{
 <script src = "Canvas.js"></script>
 <script src = "LoadingAnimation.js"></script>
 <script src = "SpringSurface.js"></script>
+<script src = "Ball.js"></script>
 
 <canvas id="myCanvas" class = "center">
 Your browser does not support the HTML5 canvas tag.</canvas>
@@ -41,7 +42,9 @@ canvas.draw();
 var sSurface = new SpringSurface();
 sSurface.setCanvas(canvasId); 
 
-
+//Balls objects and methods are decleared here............
+var ball = new Ball();
+ball.connection();
 //connection between object to object here........
 
 setInterval(draw,0);
