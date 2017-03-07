@@ -15,6 +15,7 @@ function SpringSurface(){
 		
 		this.canvasId = canvasId;
 		width = canvasId.width*30/100;
+		height = canvasId.height*3/100;
 	}
 	
 	this.draw = function(){		
