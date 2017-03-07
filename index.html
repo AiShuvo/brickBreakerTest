@@ -30,7 +30,7 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 var canvasId = document.getElementById("myCanvas");
 
 window.addEventListener("keydown",runByUserKeybord,false);
-//window.addEventListener("mousemove", runByUserMouse);
+window.addEventListener("touchstart", runByUserMouse, false);
 canvasId.addEventListener("touchmove", runByUserMouse, false)
 
 //canvas method and object declaration here.....
@@ -44,7 +44,7 @@ sSurface.setCanvas(canvasId);
 
 //Balls objects and methods are decleared here............
 var ball = new Ball();
-ball.connection();
+ball.setCanvas(canvasId);
 //connection between object to object here........
 
 setInterval(draw,0);
@@ -53,6 +53,7 @@ function draw(){//everyThing What we have to draw will add this function;
 	
 //	canvas.draw();	
 	sSurface.draw();
+	ball.draw();
 }
 
 function runByUserKeybord(event){
