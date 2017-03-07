@@ -46,14 +46,14 @@ sSurface.setCanvas(canvasId);
 var ball = new Ball();
 ball.setCanvas(canvasId);
 ball.setPosition(400,400);
-ball.run(canvas);
+ball.run();
 //connection between object to object here........
 
 setInterval(draw,0);
 
 function draw(){//everyThing What we have to draw will add this function;
 	
-//	canvas.draw();	
+	canvas.draw();	
 	sSurface.draw();
 	ball.draw();
 }

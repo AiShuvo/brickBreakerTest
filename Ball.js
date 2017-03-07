@@ -30,13 +30,11 @@ function Ball(){
 		ctx.fillStyle = color;
 		ctx.fillRect(X,Y,width,height);
 	}
-	this.run = function(canv){
-		this.canvas = canv;
+	this.run = function(){
 		setInterval(this.changePosition,10);
 	}
 	
 	this.changePosition = function(){
-			this.canvas.draw();
 			if(right && up ){
 			X++;
 			Y--;

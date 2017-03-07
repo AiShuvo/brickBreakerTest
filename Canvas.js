@@ -47,11 +47,18 @@ function Canvas(){
 		var ctx = this.canvasId.getContext("2d");
 			
 		var img = new Image();
-		img.src = "images/background3.jpg";
+		img.src = "images/background.jpg";
 		
 		img.onload = function(){
 			ctx.drawImage(img,0,0,CanvasWidth,CanvasHeight);
 			loading = true;
 		}
+	}
+	this.drawRect = function(){
+		var CanvasWidth = this.canvasId.width;
+		var CanvasHeight = this.canvasId.height;
+		var ctx = this.canvasId.getContext("2d");
+		ctx.fillStyle = "black";
+		ctx.fillRect (0,0,CanvasWidth,CanvasHeight);
 	}
 }
