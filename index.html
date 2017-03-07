@@ -1,9 +1,11 @@
 <html>
 <head><title>Breack Breaker</title>
 <style>
+
 canvas{
 	border:1px solid #d3d3d3;
 }
+
 .center{
 	position:absolute;
 	margin: auto;
@@ -13,25 +15,54 @@ canvas{
 	bottom:0;
 	box-shadow: 0px 0px auto blue;
 }
+
 </style>
 	
 <script src = "Canvas.js"></script>
 <script src = "LoadingAnimation.js"></script>
+<script src = "SpringSurface.js"></script>
+
 <canvas id="myCanvas" class = "center">
 Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
+window.addEventListener("keydown",runByUserKeybord,false);
+window.addEventListener("mousemove", runByUserMouse);
 
 var canvasId = document.getElementById("myCanvas");
 
+//canvas method and object declaration here.....
 var canvas = new Canvas();
 canvas.setCanvas(canvasId);
 canvas.run();
+canvas.draw();
+//Spring surface method and object declaration here........
+var sSurface = new SpringSurface();
+sSurface.setCanvas(canvasId); 
+
+
+//connection between object to object here........
 
 setInterval(draw,0);
 
 function draw(){//everyThing What we have to draw will add this function;
-	canvas.draw();
+	
+//	canvas.draw();	
+	sSurface.draw();
+}
+
+function runByUserKeybord(event){
+	if(event.keyCode==37){
+		sSurface.changePosition("left");
+		canvas.draw();
+		}
+	else if(event.keyCode==39){
+		sSurface.changePosition("right");
+		canvas.draw();
+		}
+}
+function runByUserMouse(e){
+	alert(e.clientX);
 }
 </script>
 </body>
