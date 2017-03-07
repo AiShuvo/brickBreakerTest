@@ -58,7 +58,8 @@ function Canvas(){
 		var CanvasWidth = this.canvasId.width;
 		var CanvasHeight = this.canvasId.height;
 		var ctx = this.canvasId.getContext("2d");
-		ctx.fillStyle = "black";
+		
+		ctx.fillStyle = "#264d00";
 		ctx.fillRect (0,0,CanvasWidth,CanvasHeight);
 	}
 }

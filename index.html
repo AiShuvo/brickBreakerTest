@@ -53,7 +53,7 @@ setInterval(draw,0);
 
 function draw(){//everyThing What we have to draw will add this function;
 	
-	canvas.draw();	
+	canvas.drawRect();	
 	sSurface.draw();
 	ball.draw();
 }
@@ -61,15 +61,12 @@ function draw(){//everyThing What we have to draw will add this function;
 function runByUserKeybord(event){
 	if(event.keyCode==37){
 		sSurface.changePosition("left");
-		canvas.draw();
 		}
 	else if(event.keyCode==39){
 		sSurface.changePosition("right");
-		canvas.draw();
 		}
 }
 function runByUserMouse(e){
-	canvas.draw();
 	sSurface.setX(e.pageX);
 }
 </script>
