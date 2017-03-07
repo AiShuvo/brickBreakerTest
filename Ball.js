@@ -3,8 +3,8 @@ function Ball(){
 	var color = "red";
 	var X = 0;
 	var Y = 0;
-	var width = 10;
-	var height = 10;
+	var dimension = 10;
+	var dimensionInPercentage = 3;
 	var xPos = 0;//left sidei distane upto ball can move.........
 	var yPos = 0;//Up side distance upto which ball can move............
 	var left = false;
@@ -20,6 +20,8 @@ function Ball(){
 	this.setCanvas = function(canvasId){
 		
 		this.canvasId = canvasId;
+		dimension = canvasId.width * dimensionInPercentage/100;
+		
 	}
 	this.setPosition = function(x,y){
 		X = x;
@@ -28,17 +30,17 @@ function Ball(){
 	this.draw = function(){
 		var ctx = this.canvasId.getContext("2d");
 		ctx.fillStyle = color;
-		ctx.fillRect(X,Y,width,height);
+		ctx.fillRect(X,Y,dimension,dimension);
 	}
 	this.run = function(){
-		setInterval(this.changePosition,10);
+		setInterval(this.changePosition,0);
 	}
 	
 	this.changePosition = function(){
 			if(right && up ){
 			X++;
 			Y--;
-			if(X>=this.canvasId.width){
+			if(X+dimension>=this.canvasId.width){
 				right = false;
 				left = true;
 			}
@@ -66,7 +68,7 @@ function Ball(){
 				left = false;
 				right = true;
 			}
-			if(Y>=this.canvasId.height){
+			if(Y+dimension>=this.canvasId.height){
 				down = false;
 				up = true;
 			}

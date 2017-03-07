@@ -4,7 +4,7 @@ function Canvas(){
 	var animation = new Animation();
 	
 	//decleare all variable bellow.............
-	var loading = false;
+	var loading = true;
 	var width = 500;
 	var height = window.innerHeight;
 	var canvasId = null;
