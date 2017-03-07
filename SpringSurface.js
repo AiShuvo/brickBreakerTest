@@ -6,6 +6,7 @@ function SpringSurface(){
 	var width = 150;
 	var height = 10;
 	var step = 10;
+	var color = "yellow"
 	this.connection = function(){
 		
 		alert("SpringSurface is connected");
@@ -16,11 +17,12 @@ function SpringSurface(){
 		this.canvasId = canvasId;
 		width = canvasId.width*30/100;
 		height = canvasId.height*3/100;
+		Y = canvasId.height*90/100;
 	}
 	
 	this.draw = function(){		
 		var ctx = this.canvasId.getContext("2d");
-		ctx.fillStyle = "black";
+		ctx.fillStyle = color;
 		ctx.fillRect (X,Y,width,height);
 	}
 	this.changePosition = function(value){
