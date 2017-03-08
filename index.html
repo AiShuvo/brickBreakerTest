@@ -22,7 +22,7 @@ canvas{
 <script src = "LoadingAnimation.js"></script>
 <script src = "SpringSurface.js"></script>
 <script src = "Ball.js"></script>
-
+<audio src = "sounds/smashing.mp3"></audio>
 <canvas id="myCanvas" class = "center">
 Your browser does not support the HTML5 canvas tag.</canvas>
 
@@ -46,9 +46,12 @@ sSurface.setCanvas(canvasId);
 //Balls objects and methods are decleared here............
 var ball = new Ball();
 ball.setCanvas(canvasId);
-ball.setPosition(400,400);
-ball.run();
+ball.setPosition((sSurface.getX()+sSurface.getWidht())/2,sSurface.getY()-ball.getDimension());
+ball.setSpring(sSurface.springProperty());
+
+
 //connection between object to object here........
+
 
 setInterval(draw,0);
 
@@ -66,6 +69,11 @@ function runByUserKeybord(event){
 	else if(event.keyCode==39){
 		sSurface.changePosition("right");
 		}
+	else if(event.keyCode == 32)
+		{
+			ball.run();
+		}
+		ball.setSpring(sSurface.springProperty());
 }
 function runByUserMouse(e){
 	sSurface.setX(e.pageX);
