@@ -104,7 +104,6 @@ function Ball(){
 	}
 	this.setSpring = function(sps){
 		sSurface = sps;	
-			alert(sSurface.x);
 	}
 	this.getDimension = function(){
 		return dimension;

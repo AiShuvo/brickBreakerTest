@@ -55,7 +55,7 @@ function SpringSurface(){
 			if(X<posX)
 				X+=step;			
 		}
-		this.updateSpringObject();//update spring surface property every time when it move;
+	//	this.updateSpringObject();//update spring surface property every time when it move;
 	}
 	
 	this.setX = function(value){
