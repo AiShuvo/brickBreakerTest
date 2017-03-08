@@ -79,9 +79,9 @@ function runByUserKeybord(event){
 		ball.setSpring(sSurface.springProperty());
 }
 function runByUserMouse(e){
+	alert(sSurface.getX());
 	sSurface.setX(e.pageX);
 	ball.setSpring(sSurface.springProperty());
-	alert(sSurface.getX());
 	if(touchStart)
 		{
 			ball.run();
