@@ -40,6 +40,7 @@ function SpringSurface(){
 		
 		ctx.fillStyle = color2;
 		ctx.fillRect (X+2,Y+2,width-4,height-4);
+		this.updateSpringObject();
 	}
 	
 	this.changePosition = function(value){
