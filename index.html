@@ -27,6 +27,9 @@ canvas{
 Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
+
+///variabel decleare heree..........
+var touchStart = true;
 var canvasId = document.getElementById("myCanvas");
 
 window.addEventListener("keydown",runByUserKeybord,false);
@@ -77,6 +80,11 @@ function runByUserKeybord(event){
 }
 function runByUserMouse(e){
 	sSurface.setX(e.pageX);
+	if(touchStart)
+		{
+			ball.run();
+			touchStart = false;
+		}
 }
 </script>
 </body>
