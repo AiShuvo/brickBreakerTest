@@ -73,7 +73,7 @@ function Ball(){
 				left = false;
 				right = true;
 			}
-			if(Y+dimension==sSurface.y && X<=sSurface.x+sSurface.w && X+dimension>=sSurface.x){
+			if(Y+dimension>=sSurface.y && X<=sSurface.x+sSurface.w && X+dimension>=sSurface.x){
 				down = false;
 				up = true;
 			}
@@ -90,7 +90,7 @@ function Ball(){
 				right = false;
 				left = true;
 			}
-			if(Y+dimension==sSurface.y && X<=(sSurface.x+sSurface.w) && X+dimension>=sSurface.x){
+			if(Y+dimension>=sSurface.y && X<=(sSurface.x+sSurface.w) && X+dimension>=sSurface.x){
 				down = false;
 				up = true;
 			}
