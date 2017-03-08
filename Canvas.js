@@ -12,9 +12,9 @@ function Canvas(){
 	this.setCanvas = function(canvasId){
 		this.canvasId = canvasId;
 		this.setupScreenSize();
-		animation.setCanvasId(canvasId);
+//		animation.setCanvasId(canvasId);
 	}
-	this.run = function(){
+/*	this.run = function(){
 		animation.setAng();
 		interval = setInterval(this.startAnimation,10);
 	}
@@ -25,7 +25,7 @@ function Canvas(){
 		else if(loading)
 			clearInterval(interval);
 	}
-	
+	*/
 	this.connection = function(){
 		alert("canvas is connected!!");
 	}
@@ -39,7 +39,7 @@ function Canvas(){
 			this.canvasId.height = window.innerHeight;
 		}
 	}
-	
+/*	
 	this.draw = function(){ //this function will draw the canvas background..........
 		
 		var CanvasWidth = this.canvasId.width;
@@ -53,7 +53,7 @@ function Canvas(){
 			ctx.drawImage(img,0,0,CanvasWidth,CanvasHeight);
 			loading = true;
 		}
-	}
+	}*/
 	this.drawRect = function(){
 		var CanvasWidth = this.canvasId.width;
 		var CanvasHeight = this.canvasId.height;

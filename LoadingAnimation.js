@@ -1,4 +1,5 @@
 function Animation(){
+	
 	var velocity;
 	var accelaration;
 	var decelaration;
@@ -11,18 +12,22 @@ function Animation(){
 	var animObject2 = new AnimObject();
 	
 	this.connection = function(){
+		
 		alert("Animation is connected!!");
 	}
 	
 	this.setCanvasId = function(canvasId){
+		
 		this.canvasId = canvasId;
 	}
+	
 	this.setAng = function(){
+	
 		animObject.setAng(20);
 		animObject1.setAng(10);
 		animObject2.setAng(0)
-	//	interval = setInterval(this.allElement,10);
 	}
+	
 	this.anim = function(){
 		
 		var ctx = this.canvasId.getContext("2d");
@@ -42,11 +47,14 @@ function AnimObject(){
 	var X = 0;
 	var ang = 0;	
 	var canvasId = null;
+	
 	this.connection = function(){
+		
 		alert("animObject is connected");
 	}	
 	
 	this.draw = function(canvasId){
+		
 		this.canvasId = canvasId;
 		var ctx = canvasId.getContext("2d");
 		this.changePosition();
@@ -56,6 +64,7 @@ function AnimObject(){
 	}
 	
 	this.changePosition = function(){
+		
 		var r = this.canvasId.width;
 			ang++;
 			
@@ -68,6 +77,7 @@ function AnimObject(){
 	}
 	
 	this.setAng = function(value){
+		
 		ang = value;
 	}
 }
