@@ -81,6 +81,7 @@ function runByUserKeybord(event){
 function runByUserMouse(e){
 	sSurface.setX(e.pageX);
 	ball.setSpring(sSurface.springProperty());
+	alert(sSurface.getX());
 	if(touchStart)
 		{
 			ball.run();
