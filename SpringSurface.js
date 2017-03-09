@@ -7,7 +7,7 @@ function SpringSurface(){
 	var height = 10;
 	var widthInPercentage = 40;
 	var heighInPercentage = 3;
-	var yInPercentage = 90;
+	var yInPercentage = 89;
 	var step = 20;
 	var color = "white";
 	var color2 = "red";

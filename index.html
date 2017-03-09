@@ -22,7 +22,9 @@ canvas{
 <script src = "LoadingAnimation.js"></script>
 <script src = "SpringSurface.js"></script>
 <script src = "Ball.js"></script>
-<audio src = "sounds/smashing.mp3"></audio>
+<body>
+
+<audio id = "audio" src = ""></audio>
 <canvas id="myCanvas" class = "center">
 Your browser does not support the HTML5 canvas tag.</canvas>
 
@@ -31,6 +33,7 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 ///variabel decleare heree..........
 var touchStart = true;
 var canvasId = document.getElementById("myCanvas");
+var audioId = document.getElementById("audio");
 
 window.addEventListener("keydown",runByUserKeybord,false);
 //window.addEventListener("touchstart", runByUserMouse, false);
@@ -49,6 +52,7 @@ sSurface.setCanvas(canvasId);
 //Balls objects and methods are decleared here............
 var ball = new Ball();
 ball.setCanvas(canvasId);
+ball.setAudioId(audioId);
 ball.setPosition((sSurface.getX()+sSurface.getWidht())/2,sSurface.getY()-ball.getDimension());
 ball.setSpring(sSurface.springProperty());
 

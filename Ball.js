@@ -14,12 +14,13 @@ function Ball(){
 	var down = false;
 	var canvas;
 	var step = {
-		x:1,
-		y:1
+		x:0,
+		y:3
 	}
 	var sSurface;
 	
-	var angle = new Angle();
+	var angle = new Angle(step);
+	var audio = new Audio();
 	
 	var ballObject = {
 					  x:X,
@@ -35,6 +36,11 @@ function Ball(){
 	this.setCanvas = function(canvasId){
 		this.canvasId = canvasId;
 		dimension = canvasId.width * dimensionInPercentage/100;
+		
+	}
+	this.setAudioId = function(audioId){
+		
+		audio.setAudioId(audioId);
 		
 	}
 	this.setPosition = function(x,y){
@@ -86,12 +92,16 @@ function Ball(){
 				left = false;
 				right = true;
 			}
-			if(Y+dimension>=sSurface.y && X<=sSurface.x+sSurface.w && X+dimension>=sSurface.x){
+			if(Y+dimension==sSurface.y && X<=sSurface.x+sSurface.w && X+dimension>=sSurface.x){
 				step = angle.getXY(sSurface,ballObject);
+				audio.startPlay(1);
+				
+				
+				
 				down = false;
 				up = true;
 			}
-			if(X <= sSurface.x+sSurface.w && X+dimension>=sSurface.x+sSurface.w && Y+dimension>=sSurface.y && Y<=sSurface.y+sSurface.w){
+			if(X <= sSurface.x+sSurface.w && X+dimension>=sSurface.x+sSurface.w && Y+dimension>=sSurface.y && Y<=sSurface.y+sSurface.h){
 				right = true;
 				left = false;
 				down = true;
@@ -104,12 +114,16 @@ function Ball(){
 				right = false;
 				left = true;
 			}
-			if(Y+dimension>=sSurface.y && X<=(sSurface.x+sSurface.w) && X+dimension>=sSurface.x){
+			if(Y+dimension==sSurface.y && X<=(sSurface.x+sSurface.w) && X+dimension>=sSurface.x){
 				step = angle.getXY(sSurface,ballObject);
+				audio.startPlay(1);
+				
+				
+				
 				down = false;
 				up = true;
 			}
-			if(X <= sSurface.x && X+dimension>=sSurface.x && Y+dimension>=sSurface.y && Y<=sSurface.y+sSurface.w){
+			if(X <= sSurface.x && X+dimension>=sSurface.x && Y+dimension>=sSurface.y && Y<=sSurface.y+sSurface.h){
 				right = false;
 				left = true;
 				down = true;
@@ -136,13 +150,13 @@ function Ball(){
 	}
 }
 
-function Angle(){
+function Angle(s){
 	var ang = [30,40,50,60,70,80,90,80,70,60,50,40,30];
 	var div = (1/ang.length);
-	var r = 2;//this will be the speed of ball..........
+	var r = Math.sqrt(s.x*s.x+s.y*s.y);//this will be the speed of ball..........
 	var step = {
-		x:0,
-		y:0
+		x:r * Math.cos(45 * Math.PI/180),
+		y:r * Math.sin(45 * Math.PI/180)
 	}
 	this.connection = function(){
 		
@@ -159,5 +173,26 @@ function Angle(){
 				return step;
 			}
 		}return step;
+	}
+}
+function Audio(){
+	var audioId;
+	this.connection = function(){
+		
+		alert("Audio is connected");
+	}
+	this.setAudioId = function(id){
+		audioId = id;
+	}
+	this.startPlay = function(no){
+			if(no == 1){
+				audioId.src = "sounds/metal.mp3";
+				audioId.currentTime = 0;
+				audioId.play();
+			}else if(no == 2){
+				audioId.src = "sounds/smashing.mp3";
+				audioId.currentTime = 0;
+				audioId.play();	
+			}
 	}
 }
