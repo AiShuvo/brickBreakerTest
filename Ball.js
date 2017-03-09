@@ -187,10 +187,12 @@ function Audio(){
 	this.startPlay = function(no){
 			if(no == 1){
 				audioId.src = "sounds/metal.mp3";
+				audioId.volume = 1;
 				audioId.currentTime = 0;
 				audioId.play();
 			}else if(no == 2){
 				audioId.src = "sounds/smashing.mp3";
+				audioId.volume = 1;
 				audioId.currentTime = 0;
 				audioId.play();	
 			}
