@@ -13,15 +13,26 @@ function Ball(){
 	var up = true;
 	var down = false;
 	var canvas;
-	var step = 1;
+	var step = {
+		x:1,
+		y:1
+	}
 	var sSurface;
+	
+	var angle = new Angle();
+	
+	var ballObject = {
+					  x:X,
+					  y:Y,
+					  d:dimension
+					 };
+	
 	this.connection = function(){
 		
 		alert("Ball is Connected");
 	}
 	
 	this.setCanvas = function(canvasId){
-		
 		this.canvasId = canvasId;
 		dimension = canvasId.width * dimensionInPercentage/100;
 		
@@ -36,6 +47,7 @@ function Ball(){
 		ctx.fillRect(X,Y,dimension,dimension);
 		ctx.fillStyle = color2;
 		ctx.fillRect(X+2,Y+2,dimension-4,dimension-4);
+		this.updateBallObject();
 	}
 	this.run = function(){
 
@@ -43,9 +55,10 @@ function Ball(){
 	}
 	
 	this.changePosition = function(){
+		
 			if(right && up ){
-			X+=step;
-			Y-=step;
+			X+=step.x;
+			Y-=step.y;
 			if(X+dimension>=this.canvasId.width){
 				right = false;
 				left = true;
@@ -55,8 +68,8 @@ function Ball(){
 				down = true;
 			}
 		}else if(left && up){
-			X-=step;
-			Y-=step;
+			X-=step.x;
+			Y-=step.y;
 			if(X<=xPos){
 				left = false;
 				right = true;
@@ -66,14 +79,15 @@ function Ball(){
 				down = true;
 			}
 		}else if(left && down){
-			X-=step;
-			Y+=step;
+			X-=step.x;
+			Y+=step.y;
 			
 			if(X<=xPos){
 				left = false;
 				right = true;
 			}
 			if(Y+dimension>=sSurface.y && X<=sSurface.x+sSurface.w && X+dimension>=sSurface.x){
+				step = angle.getXY(sSurface,ballObject);
 				down = false;
 				up = true;
 			}
@@ -84,13 +98,14 @@ function Ball(){
 				up = false;
 			}
 		}else if(right && down){
-			X+=step;
-			Y+=step
+			X+=step.x;
+			Y+=step.y;
 			if(X+dimension>=this.canvasId.width){
 				right = false;
 				left = true;
 			}
 			if(Y+dimension>=sSurface.y && X<=(sSurface.x+sSurface.w) && X+dimension>=sSurface.x){
+				step = angle.getXY(sSurface,ballObject);
 				down = false;
 				up = true;
 			}
@@ -107,5 +122,42 @@ function Ball(){
 	}
 	this.getDimension = function(){
 		return dimension;
+	}
+	this.getX = function(){
+		return X;
+	}
+	this.getY = function(){
+		return Y;
+	}
+	this.updateBallObject = function(){
+		ballObject.x = this.getX();
+		ballObject.y = this.getY();
+		ballObject.d = this.getDimension();
+	}
+}
+
+function Angle(){
+	var ang = [30,40,50,60,70,80,90,80,70,60,50,40,30];
+	var div = (1/ang.length);
+	var r = 2;//this will be the speed of ball..........
+	var step = {
+		x:0,
+		y:0
+	}
+	this.connection = function(){
+		
+		alert("Angle is connected");
+	}
+	this.getXY = function(sSurface,ball){
+	var i =0;
+		for(i=0;i<ang.length;i++)
+		{
+			if((sSurface.x+div*i*sSurface.w) <=ball.x && (sSurface.x + sSurface.w*div * (i+1))>=ball.x)
+			{
+				step.x = r * Math.cos(ang[i] * Math.PI/180);
+				step.y = r * Math.sin(ang[i] * Math.PI/180);
+				return step;
+			}
+		}return step;
 	}
 }

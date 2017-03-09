@@ -12,6 +12,12 @@ function SpringSurface(){
 	var color = "white";
 	var color2 = "red";
 	
+	var color3 = "yellow";
+	var color4 = "lime";
+	
+	var angle30deg = 0.1;
+	var angle45deg = 0.15;
+	
 	var springObject = {
 						x:X,
 						y:Y,
@@ -40,6 +46,15 @@ function SpringSurface(){
 		
 		ctx.fillStyle = color2;
 		ctx.fillRect (X+2,Y+2,width-4,height-4);
+		
+		ctx.fillStyle = color3;
+		ctx.fillRect (X+2,Y+2,width*0.1,height-4);
+		ctx.fillRect (X+width-width*0.1-2,Y+2,width*0.1,height-4);
+		
+		ctx.fillStyle = color4;
+		ctx.fillRect (X+2+width*0.1,Y+2,width*0.15,height-4);
+		ctx.fillRect (X+width-width*0.1-2,Y+2,width*0.1,height-4);
+		
 		this.updateSpringObject();
 	}
 	
