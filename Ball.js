@@ -143,6 +143,9 @@ function Ball(){
 	this.getY = function(){
 		return Y;
 	}
+	this.getBallObject = function(){
+		return ballObject;
+	}
 	this.updateBallObject = function(){
 		ballObject.x = this.getX();
 		ballObject.y = this.getY();

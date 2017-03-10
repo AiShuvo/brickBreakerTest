@@ -22,12 +22,13 @@ canvas{
 <script src = "LoadingAnimation.js"></script>
 <script src = "SpringSurface.js"></script>
 <script src = "Ball.js"></script>
+<script src = "Brick.js"></script>
 <body>
 
 
 <canvas id="myCanvas" class = "center">
 Your browser does not support the HTML5 canvas tag.</canvas>
-<audio id = "audio" onload="" src = "sounds/metal.mp3" controls autoplay></audio>
+<audio id = "audio" onload="" src = "sounds/metal.mp3" ></audio>
 <script>
 
 ///variabel decleare heree..........
@@ -56,6 +57,11 @@ ball.setAudioId(audioId);
 ball.setPosition((sSurface.getX()+sSurface.getWidht())/2,sSurface.getY()-ball.getDimension());
 ball.setSpring(sSurface.springProperty());
 
+//Brick is declared here.............
+var brick = new Brick();
+brick.setCanvas(canvasId);
+
+
 
 //connection between object to object here........
 
@@ -67,6 +73,7 @@ function draw(){//everyThing What we have to draw will add this function;
 	canvas.drawRect();	
 	sSurface.draw();
 	ball.draw();
+	brick.draw();
 }
 
 function runByUserKeybord(event){
@@ -81,6 +88,7 @@ function runByUserKeybord(event){
 			ball.run();
 		}
 		ball.setSpring(sSurface.springProperty());
+	//	brick.viewBall();
 }
 function runByUserMouse(e){
 	sSurface.setX(e.pageX);
